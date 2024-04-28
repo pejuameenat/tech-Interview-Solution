@@ -1,5 +1,5 @@
 //~1
-const str = 'ricky-i-am-the-best@gmail.com' //write a function that turns dash to lamda
+const str = 'ricky-i-am-the-best@gmail.com' //write a function that turns dash to ~
 const changeStr = (str) => {
   const myStr = str.split('-').join('~')
   console.log(myStr)
@@ -55,7 +55,7 @@ function createTable() {
 
 // console.log(typeof intervalID) //weird
 
-//api call
+//api call to prints odd alumids if today is sunday, tuesday, thursday, saturday
 const days = [
   'sunday',
   'monday',
@@ -71,6 +71,7 @@ async function galleryPhoto(url) {
   const now = days[date.getDay()]
   try {
     const resp = await fetch(url)
+    if(!resp.ok) throw new Error('something went wrong')
     const data = resp.json()
     console.log(data)
 
